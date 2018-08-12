@@ -84,3 +84,16 @@ Node* reverse(Node *head)
     head = prev;
     return head;
 }
+
+// Recursively
+Node* reverse(Node *head)
+{
+    if(head==NULL||head->next==NULL){
+        return head;
+    }else{
+        Node *rev = reverse(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return rev;
+    }
+}
